@@ -1,8 +1,6 @@
 import { app, BrowserWindow } from 'electron'
 import path from 'node:path'
 
-const appPath = app.getAppPath()
-
 function createWindow() {
     const win = new BrowserWindow({
         width: 800,
@@ -11,7 +9,6 @@ function createWindow() {
         minHeight: 600,
         autoHideMenuBar: true,
         show: false,
-        icon: path.join(appPath, 'assets', 'icon.png'),
         webPreferences: {
             nodeIntegration: true,
             preload: path.join(__dirname, 'preload.js')

@@ -1,3 +1,5 @@
+const { execSync } = require("child_process")
+
 module.exports = {
   packagerConfig: {},
   rebuildConfig: {},
@@ -19,4 +21,10 @@ module.exports = {
       config: {},
     },
   ],
-};
+  hooks: {
+    async generateAssets() {
+      console.log("Compiling typescript files...")
+      execSync("yarn tsc")
+    }
+  }
+}
